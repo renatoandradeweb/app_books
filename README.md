@@ -164,7 +164,7 @@
     ```json
     {
         "nome": "Cliente Exemplo",
-        "cpf": "04362032606",
+        "cpf": "12345678901",
         "cep": "01001000",
         "logradouro": "Praça da Sé",
         "numero": "123",
