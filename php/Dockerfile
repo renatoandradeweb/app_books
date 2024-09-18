@@ -1,0 +1,51 @@
+# Use uma imagem do PHP 8 com Apache
+FROM php:8.1-apache
+
+# Instale as extensões necessárias
+RUN apt-get update && apt-get install -y \
+    libmcrypt-dev \
+    zlib1g-dev \
+    libzip-dev \
+    unzip \
+    default-mysql-client \
+    && docker-php-ext-install pdo pdo_mysql zip
+
+# Instale o Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Copie o script de inicialização personalizado para o contêiner
+COPY ./php/start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
+# Habilite o módulo Apache para reescrita de URL
+RUN a2enmod rewrite
+
+# Defina o DocumentRoot para o diretório `web`
+RUN sed -i "s|/var/www/html|/var/www/html/web|g" /etc/apache2/sites-available/000-default.conf
+
+# Adicione configuração específica para o Yii2 no Apache
+RUN echo '<Directory /var/www/html/web>' > /etc/apache2/conf-available/yii2.conf \
+    && echo '    Options Indexes FollowSymLinks' >> /etc/apache2/conf-available/yii2.conf \
+    && echo '    AllowOverride All' >> /etc/apache2/conf-available/yii2.conf \
+    && echo '    Require all granted' >> /etc/apache2/conf-available/yii2.conf \
+    && echo '</Directory>' >> /etc/apache2/conf-available/yii2.conf
+
+# No Dockerfile
+RUN echo "memory_limit = 1024M" >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+
+# Habilitar a configuração para o Yii2
+RUN a2enconf yii2
+
+# Copie o código-fonte para o contêiner
+COPY ./src /var/www/html
+
+# Instale dependências do projeto Yii2
+WORKDIR /var/www/html
+RUN composer install --prefer-dist --no-dev --optimize-autoloader
+
+# Defina as permissões corretas
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
+
+# Exponha a porta 80
+EXPOSE 80
