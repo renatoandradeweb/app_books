@@ -7,22 +7,20 @@
 
 #### Em src/config/params.php definir o jwtSecretKey para funcionar o token JWT
 
-    ```
     return [
         'jwtSecretKey' => '',
     ];
-    ```
+
 
 ### Configuração AWS S3
 
 #### Em src/services/AwsS3Service.php definir as credenciais para funcionar o upload de arquivos
 
-    ```json
     'credentials' => [
             'key'    => '',  // Defina a sua Access Key ID da AWS
             'secret' => '', // Defina a sua Secret Access Key
     ], 
-    ```
+    
 
 ## Instruções para Iniciar o Projeto
 
