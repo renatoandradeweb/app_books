@@ -7,7 +7,7 @@
 
     ```bash
     git clone https://github.com/renatoandradeweb/app_books
-    cd <app_books>
+    cd app_books
     ```
 
 2. Suba o ambiente Docker:
