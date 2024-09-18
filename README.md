@@ -17,8 +17,8 @@
 #### Em src/services/AwsS3Service.php definir as credenciais para funcionar o upload de arquivos
 
     'credentials' => [
-            'key'    => '',  // Defina a sua Access Key ID da AWS
-            'secret' => '', // Defina a sua Secret Access Key
+            'key'    => '',  // Defina a sua Access Key ID da AWS 
+            'secret' => '', // Defina a sua Secret Access Key da AWS 
     ], 
     
 
