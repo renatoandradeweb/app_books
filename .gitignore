@@ -1,5 +1,4 @@
 # Ignorar diretórios do Yii2
-src/vendor/
 src/runtime/
 src/web/assets/
 src/web/uploads/
@@ -28,7 +27,6 @@ Thumbs.db
 *~
 
 # Ignorar arquivos do Composer
-composer.lock
 composer.phar
 
 # Ignorar diretórios e arquivos de IDEs
