@@ -1,24 +1,7 @@
 
 # Projeto Yii2 - API de Usuários, Clientes e Livros
 
-## Instruções para Iniciar o Projeto
-
-1. Clone o repositório:
-
-    ```bash
-    git clone https://github.com/renatoandradeweb/app_books
-    cd app_books
-    ```
-
-2. Suba o ambiente Docker:
-
-    ```bash
-    docker-compose up --build
-    ```
-
-3. A aplicação estará disponível em `http://localhost:8080`.
-
-## Configurações Extras
+## Configurações Iniciais
 
 ### Configuração jwtSecretKey
 
@@ -41,6 +24,22 @@
     ], 
     ```
 
+## Instruções para Iniciar o Projeto
+
+1. Clone o repositório:
+
+    ```bash
+    git clone https://github.com/renatoandradeweb/app_books
+    cd app_books
+    ```
+
+2. Suba o ambiente Docker:
+
+    ```bash
+    docker-compose up --build
+    ```
+
+3. A aplicação estará disponível em `http://localhost:8080`.
 
 ## Rotas da API
 
@@ -152,6 +151,9 @@
     }
     ```
 
+***
+
+
 ### Módulo de Clientes
 
 #### 1. Criar Cliente
@@ -203,6 +205,8 @@
         ```
         GET /clientes?limit=10&offset=0&order=cpf
         ```
+
+***
 
 ### Módulo de Livros
 
