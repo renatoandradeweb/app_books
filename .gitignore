@@ -1,0 +1,38 @@
+# Ignorar diretórios do Yii2
+src/vendor/
+src/runtime/
+src/web/assets/
+src/web/uploads/
+
+# Ignorar arquivos sensíveis
+src/.env
+src/.env.local
+src/.DS_Store
+src/*.key
+src/*.pem
+
+# Ignorar logs
+src/runtime/logs/
+src/logs/
+
+# Ignorar caches
+src/runtime/cache/
+src/web/cpresources/
+
+# Ignorar arquivos e diretórios do sistema
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Ignorar arquivos do Composer
+composer.lock
+composer.phar
+
+# Ignorar diretórios e arquivos de IDEs
+*.iml
+*.ipr
+*.iws
+.idea/
